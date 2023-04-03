@@ -4,6 +4,9 @@ import time
 
 def take_photo():
     cam = cv2.VideoCapture(0)
+    if not cam.isOpened():
+        raise RuntimeError('Could not start camera.')
+
     ret, image = cam.read()
     cam.release()
 
