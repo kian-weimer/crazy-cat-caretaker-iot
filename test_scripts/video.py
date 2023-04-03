@@ -2,7 +2,7 @@ import os
 import cv2
 from base_camera import BaseCamera
 
-cam = cv2.VideoCapture(0)
+# cam = cv2.VideoCapture(0)
 
 class Camera(BaseCamera):
     video_source = 0
@@ -19,18 +19,15 @@ class Camera(BaseCamera):
     @staticmethod
     def frames():
         print(Camera.video_source)
-        camera = cam
-        # if not camera.isOpened():
-        #     raise RuntimeError('Could not start camera.')
+        camera = cv2.VideoCapture(0)
+        if not camera.isOpened():
+            raise RuntimeError('Could not start camera.')
 
         while True:
             # read current frame
             _, img = camera.read()
 
             # encode as a jpeg image and return it
-            try:
-                yield cv2.imencode('.jpg', img)[1].tobytes()
-            except:
-                _, img = camera.read()
-                yield cv2.imencode('.jpg', img)[1].tobytes()
+            yield cv2.imencode('.jpg', img)[1].tobytes()
+
 
