@@ -7,6 +7,7 @@ name = "pypi"
 opencv-python = "==4.5.3.56"
 requests = "*"
 aiohttp = "*"
+numpy = "*"
 
 [dev-packages]
 
