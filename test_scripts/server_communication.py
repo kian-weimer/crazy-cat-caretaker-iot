@@ -30,7 +30,7 @@ def test():
         delay = 1/FRAME_RATE - (time.time()-start)
         print(f"time to loop: {time.time() - start}s Sleeping for {delay}s")
         # image = take_photo()
-        time.sleep(delay)
+        time.sleep(max(delay, 0))
         # send_image(image)
 
 if __name__ == "__main__":
