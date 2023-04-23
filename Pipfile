@@ -8,6 +8,7 @@ opencv-python = "==4.5.3.56"
 requests = "*"
 aiohttp = "*"
 numpy = "*"
+firebase-admin = "*"
 
 [dev-packages]
 
